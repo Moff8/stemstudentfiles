@@ -5,10 +5,10 @@ import time  # Import the time module for handling timing and local time
 lcd = LCD1602.LCD1602(16, 2)
 
 # Initialize the backlight using the SN3193 module
-#led = LCD1602.SN3193()
+backlight = LCD1602.SN3193()
 
 # Set the backlight brightness to 50% (range: 0~100)
-#led.set_brightness(50)
+backlight.set_brightness(50)
 
 # Uncomment the following line to enable breathing mode for the backlight
 # led.set_mode(LCD1602.LED_BREATH_MODE)
