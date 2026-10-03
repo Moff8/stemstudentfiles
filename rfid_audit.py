@@ -31,7 +31,7 @@ def initialize_devices():
         return lcd, rfid, buzzer, green, red
     except Exception as e:
         print(f"✗ Error initializing devices: {e}")
-        return None, None, None, None
+        return None, None, None, None, None
 
 
 def log_card_audit(card_uid, username, filename='card_audit.csv'):
@@ -449,6 +449,10 @@ if __name__ == "__main__":
         print("\n\nApplication stopped by user")
         lcd = LCD1602.LCD1602(16, 2)
         lcd.clear()
+        # Initialize the backlight using the SN3193 module
+        backlight = LCD1602.SN3193()
+        # Set the backlight brightness to 0% (range: 0~100)
+        backlight.set_brightness(0)
     except Exception as e:
         print(f"\nFatal error: {e}")
 
